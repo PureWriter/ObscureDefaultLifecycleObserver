@@ -6,6 +6,8 @@ For details, see https://github.com/aosp-mirror/platform_frameworks_support/blob
 
 This leads our projects to unnecessarily expose a lot of code names that use `DefaultLifecycleObserver`. But in fact, for the subclasses of `DefaultLifecycleObserver` or `FullLifecycleObserver`, they don't need to be kept at all, and they can be completely obfuscated, because the Lifecycle framework doesn't reflect `FullLifecycleObserver` at all. Unfortunately, the Android official kept them all. Once we introduce the Lifecycle library, its consumerProguardRule content will inevitably be automatically merged into our project Proguard configuration and take effect.
 
+This GitHub project solves the problem.
+
 ---
 
 在 Android 官方提供的 Lifecycle 库中，包含了一个 consumerProguardRule，它告诉 Proguard 需要 keep 住所有实现或继承 `LifecycleObserver` 或 `DefaultLifecycleObserver` 的子类类名:
