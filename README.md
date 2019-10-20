@@ -4,7 +4,7 @@ In the Android official [Lifecycle](https://developer.android.com/jetpack/androi
 
 For details, see https://github.com/aosp-mirror/platform_frameworks_support/blob/a9ac247af2afd4115c3eb6d16c05bc92737d6305/lifecycle/runtime/proguard-rules.pro
 
-This leads us to unnecessarily expose a lot of code names that use `DefaultLifecycleObserver`. But in fact, for the subclasses of `DefaultLifecycleObserver` or `FullLifecycleObserver`, they don't need to be kept at all, and they can be completely obfuscated, because the Lifecycle framework doesn't reflect `FullLifecycleObserver` at all. Unfortunately, the Android official kept them all. Once we introduce the Lifecycle library, its consumerProguardRule content will inevitably be automatically merged into our project Proguard configuration and take effect.
+This leads our projects to unnecessarily expose a lot of code names that use `DefaultLifecycleObserver`. But in fact, for the subclasses of `DefaultLifecycleObserver` or `FullLifecycleObserver`, they don't need to be kept at all, and they can be completely obfuscated, because the Lifecycle framework doesn't reflect `FullLifecycleObserver` at all. Unfortunately, the Android official kept them all. Once we introduce the Lifecycle library, its consumerProguardRule content will inevitably be automatically merged into our project Proguard configuration and take effect.
 
 ---
 
